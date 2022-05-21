@@ -1,4 +1,4 @@
-# project-interdisciplinary
+# front-end
 
 ## Project setup
 ```
