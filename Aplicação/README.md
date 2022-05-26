@@ -22,9 +22,8 @@ Em resumo, seu objetivo é reduzir dúvidas sobre determinado sintoma que o usu�
 Npm -> 7.5.2 <br>
 Node -> v12.22.5 <br>
 
-## Autores do Projetos
+## Autores do Projeto
 
-| [<img src="https://avatars.githubusercontent.com/CarolinyFranca" width=115><br><sub>Caroliny França</sub>](https://github.com/CarolinyFranca) |  [<img src="https://avatars.githubusercontent.com/0502j" width=115><br><sub>Jamile de Souza</sub>](https://github.com/0502j) |  [<img src="https://avatars.githubusercontent.com/JonatasTCoelho" width=115><br><sub>Jônatas Tonin Coelho</sub>](https://github.com/JonatasTCoelho) | [<img src="https://avatars.githubusercontent.com/Karen-HerOAcEDucK" width=115><br><sub>Karen Letícia</sub>](https://github.com/Karen-HerOAcEDucK) |
-| :---: | :---: | :---: | | :---: 
+| [<img src="https://avatars.githubusercontent.com/CarolinyFranca" width=115><br><sub>Caroliny França</sub>](https://github.com/CarolinyFranca) | <br>  [<img src="https://avatars.githubusercontent.com/0502j" width=115><br><sub>Jamile de Souza</sub>](https://github.com/0502j) | <br>  [<img src="https://avatars.githubusercontent.com/JonatasTCoelho" width=115><br><sub>Jônatas Tonin Coelho</sub>](https://github.com/JonatasTCoelho) |<br> [<img src="https://avatars.githubusercontent.com/Karen-HerOAcEDucK" width=115><br><sub>Karen Letícia</sub>](https://github.com/Karen-HerOAcEDucK)
 
 
