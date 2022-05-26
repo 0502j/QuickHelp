@@ -24,7 +24,7 @@ Node -> v12.22.5 <br>
 
 ## Autores do Projetos
 
-[<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=" width=115 > <br> <sub> Jônatas Tonin Coelho </sub>](https://github.com/JonatasTCoelho) |
+[<img src="https://avatars.githubusercontent.com/JonatasTCoelho" width=115 > <br> <sub> Jônatas Tonin Coelho </sub>](https://github.com/JonatasTCoelho) |
 | :---: |  
 <!-- | [<img src="https://avatars.githubusercontent.com/u/37356058?v=4" width=115><br><sub>Caroliny Franca</sub>](https://github.com/CarolinyFranca) |  [<img src="https://avatars.githubusercontent.com/u/30351153?v=4" width=115><br><sub>Jamile de Souza</sub>](https://github.com/0502j) |  [<img src="https://avatars.githubusercontent.com/u/8989346?v=4" width=115><br><sub>Karen Letícia</sub>](https://github.com/Karen-HerOAcEDucK) | [<img src="https://avatars.githubusercontent.com/u/30351153?v=4" width=115><br><sub>Jônatas Tonin Coelho</sub>](https://github.com/JonatasTCoelho) |
 | :---: | :---: | :---: | -->
