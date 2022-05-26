@@ -1,7 +1,8 @@
 # fatec-projects-interdisciplinary-3-sem
-<img src="https://img.shields.io/static/v1?label=codeigniter&message=framework&color=blue&style=for-the-badge&logo=CODEIGNITTER"/>
-
-<img src="https://img.shields.io/static/v1?label=VueJS&message=framework&color=blue&style=for-the-badge&logo=VUEJS"/>
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=react&message=framework&color=blue&style=for-the-badge&logo=CodeIgniter"/>
+<img src="https://img.shields.io/static/v1?label=react&message=framework&color=blue&style=for-the-badge&logo=javascript"/>
+</p>
 Repositório do Projeto Interdisciplinar do 3 Semestre do curso de Desenvolvimento de Software Multiplataforma, projeto que foi focado e direcionado para consumo de APIs
 <br>
 <p align="center">
@@ -15,12 +16,43 @@ Em resumo, seu objetivo é reduzir dúvidas sobre determinado sintoma que o usu�
 
 ## Tecnologias Utilizadas
 
-- [Framework Codeigniter(PHP)](https://codeigniter.com/)
+- [Framework CodeIgniter(PHP)](https://codeigniter.com/)
 - [Framework VueJS(JavaScript)](https://vuejs.org/guide/introduction.html)
 
 # Versões utilizadas
 Npm -> 7.5.2 <br>
 Node -> v12.22.5 <br>
+
+## Como rodar a aplicação :arrow_forward:
+
+No terminal, clone o projeto: 
+
+```
+git clone https://github.com/Karen-HerOAcEDucK/fatec-projects-interdisciplinary-3-sem
+```
+
+Depois, vá para a pasta de aplicação
+
+```
+cd Aplicação
+```
+
+Para rodar o front-end:
+
+```
+cd front-end
+npm install
+npm run serve
+```
+
+Para rodar o back-end:
+
+```
+cd backend
+composer install
+php spark serve
+```
+
 
 ## Autores do Projeto
 
