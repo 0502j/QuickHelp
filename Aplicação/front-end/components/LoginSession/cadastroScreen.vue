@@ -1,11 +1,11 @@
 <template id="app">
   <div class="login">
     <v-row>
-      <v-col cols="4" >
+      <v-col cols="4">
         <div class="bg">
           <v-row>
             <v-col class="text-login">
-              <h2 style="color: white">Login</h2>
+              <h2 style="color: white">Cadastro</h2>
             </v-col>
           </v-row>
 
@@ -16,6 +16,18 @@
                 solo
                 :rules="[rules.required, rules.email]"
                 label="Email"
+                clearable
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col class="inputs-login-3">
+              <v-text-field
+                v-model="telefone"
+                solo
+                type="number"
+                v-mask="'###.###.###-##'"
+                label="Telefone"
                 clearable
               ></v-text-field>
             </v-col>
@@ -35,32 +47,27 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col cols="12">
-              <router-link class="forgot-password" to="/recuperar-senha">Esqueci minha Senha</router-link>
-            </v-col>
-          </v-row>
-          <v-row>
             <v-col class="col-btn-login">
-              <v-btn :disabled="disabledButton" class="btn-login" width="200px">Login</v-btn>
+              <v-btn :disabled="disabledButton" class="btn-login" width="200px">Cadastrar</v-btn>
             </v-col>
           </v-row>
 
-         <v-row>
+          <v-row>
             <v-col cols="12" align="center">
-              <router-link class="create-account" to="/cadastro">Criar conta</router-link>
+              <router-link class="login-account" to="/login">Já tem conta? Fazer Login</router-link>
             </v-col>
           </v-row>
         </div>
       </v-col>
+
+      <v-col cols="8"></v-col>
     </v-row>
-    <footer />
   </div>
 </template>
 
 <script>
-import footer from '../../layouts/Footer/footer.vue';
+
 export default {
-  components: { footer },
   data() {
     return {
       disabledButton: true,
@@ -83,6 +90,15 @@ export default {
     };
   },
 
+  methods: {
+      enabledButtonLogin(){
+          console.log(this.rules);
+      }
+  },
+
+  mounted() {
+      this.enabledButtonLogin();
+  },
 };
 </script>
 
@@ -103,6 +119,11 @@ export default {
 .inputs-login-1 {
   align-items: center;
   margin: 0 auto !important;
+  max-width: 350px;
+}
+.inputs-login-3 {
+  align-items: center;
+  margin: -30px auto auto auto !important;
   max-width: 350px;
 }
 .inputs-login-2 {
@@ -131,10 +152,10 @@ export default {
   color: white;
   margin-left: 200px;
 }
-.create-account {
+
+.login-account {
   color: white;
   text-align: center !important;
   margin: 0 auto !important;
 }
-
 </style>

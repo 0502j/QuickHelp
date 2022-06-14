@@ -13,14 +13,14 @@
           style="max-width: 600px; margin: 10px auto"
         >
           <v-col align="center" cols="4">
-            <v-icon style="font-size: 60px" large color="green darken-2">
+            <v-icon style="font-size: 40px" large color="green darken-2">
               mdi-hospital
             </v-icon>
           </v-col>
 
           <v-col align="center" cols="4">
             <v-icon
-              style="font-size: 60px"
+              style="font-size: 40px"
               large
               color="green darken-2"
               size="100px"
@@ -31,7 +31,7 @@
 
           <v-col align="center" cols="4">
             <v-icon
-              style="font-size: 60px"
+              style="font-size: 40px"
               large
               color="green darken-2"
               size="100px"

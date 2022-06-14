@@ -1,16 +1,17 @@
 <template id="app">
-  <div class="login">
+  <div class="forgot-pass">
     <v-row>
-      <v-col cols="4" >
-        <div class="bg">
+      <v-col cols="4">
+        <div class="bg-forgot">
           <v-row>
-            <v-col class="text-login">
-              <h2 style="color: white">Login</h2>
+            <v-col class="text-forgot-pass">
+              <h2 style="color: white">Recuperar Senha</h2> <br>
+              <p style="color:white; font-size: 12px">Insira o e-mail utilizado em sua conta no campo abaixo para receber um código de alteração de senha de acesso</p>
             </v-col>
           </v-row>
 
           <v-row>
-            <v-col class="inputs-login-1">
+            <v-col class="inputs-forgot-pass-1">
               <v-text-field
                 v-model="email"
                 solo
@@ -21,54 +22,31 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col class="inputs-login-2" cols="12">
-              <v-text-field
-                v-model="password"
-                solo
-                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                :rules="[rules.required, rules.min]"
-                :type="show1 ? 'text' : 'password'"
-                label="Senha"
-                counter
-                @click:append="show1 = !show1"
-              ></v-text-field>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12">
-              <router-link class="forgot-password" to="/recuperar-senha">Esqueci minha Senha</router-link>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col class="col-btn-login">
-              <v-btn :disabled="disabledButton" class="btn-login" width="200px">Login</v-btn>
-            </v-col>
-          </v-row>
-
-         <v-row>
-            <v-col cols="12" align="center">
-              <router-link class="create-account" to="/cadastro">Criar conta</router-link>
+            <v-col class="col-btn-forgot-pass">
+              <v-btn :disabled="disabledButton" class="btn-forgot-pass" width="200px"> Enviar Link</v-btn>
             </v-col>
           </v-row>
         </div>
       </v-col>
     </v-row>
-    <footer />
+    <v-row style="background-color: #0f3375; margin-top: -35px;   width: 412px !important;">
+    <router-link to="/login">
+ <v-btn depressed style="  background-color: #0f3375; color: white"><v-icon left>
+        mdi-arrow-left
+      </v-icon> Voltar para o Login</v-btn>
+    </router-link>
+     
+    </v-row>
   </div>
 </template>
 
-<script>
-import footer from '../../layouts/Footer/footer.vue';
+<script scoped>
 export default {
-  components: { footer },
   data() {
     return {
       disabledButton: true,
       email: "",
-      show1: false,
-      show2: true,
-      show3: false,
-      show4: false,
+
       password: "",
       rules: {
         required: (value) => !!value || "Required.",
@@ -87,41 +65,44 @@ export default {
 </script>
 
 <style scoped>
-.login {
+#app{
+  background-color: black !important;
+}
+.forgot-pass {
   font-family: "Roboto";
   font-style: normal;
 }
-.bg {
+.bg-forgot {
   width: 400px !important;
   height: 100vh !important;
   background-color: #0f3375;
 }
-.text-login {
+.text-forgot-pass {
   text-align: center;
   margin-top: 50%;
 }
-.inputs-login-1 {
+.inputs-forgot-pass-1 {
   align-items: center;
   margin: 0 auto !important;
   max-width: 350px;
 }
-.inputs-login-2 {
+.inputs-forgot-pass-2 {
   align-items: center;
   margin: 0 auto !important;
   max-width: 350px;
   margin-top: -30px !important;
 }
-.col-btn-login {
+.col-btn-forgot-pass {
   margin: 0 auto !important;
   text-align: center;
 }
-.btn-login {
+.btn-forgot-pass {
   background-color: #cce4fd;
   color: #283852 !important;
   border-radius: 20px;
 }
 
-.btn-login:hover {
+.btn-forgot-pass:hover {
   background-color: #0f3375;
   color: #ffffff !important;
   border: 1px solid white;
@@ -131,10 +112,4 @@ export default {
   color: white;
   margin-left: 200px;
 }
-.create-account {
-  color: white;
-  text-align: center !important;
-  margin: 0 auto !important;
-}
-
 </style>

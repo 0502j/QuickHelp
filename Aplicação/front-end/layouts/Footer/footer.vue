@@ -27,7 +27,7 @@
 export default {
   methods: {},
   data: () => ({
-    links: ["Sobre nós", "Serviços", "GitHub", "Contate-nos"],
+    links: ["Sobre nós", "FAQ", "GitHub", "Contate-nos"],
   }),
 };
 </script>
