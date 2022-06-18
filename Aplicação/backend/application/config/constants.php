@@ -83,3 +83,11 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+defined('FILTER_URI_DEFAULT')  OR define('FILTER_URI_DEFAULT', 4);
+
+
+// Constants API region
+
+defined('API_URL') OR define('API_URL', 'https://api.infermedica.com/v3/info');
+defined('API_ID')  OR define('API_ID', '9b927164');
+defined('API_KEY') OR define('API_KEY', '804c2f46520bdea8b344a43d39ab5435');
