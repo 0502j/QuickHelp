@@ -4,7 +4,7 @@
       <div class="itens-geral">
         <div>
           <v-btn outlined class="btn-itens">
-          <router-link class="itens" to="/home">Home</router-link>
+          <router-link class="itens" to="/">Home</router-link>
           </v-btn>
 
            <v-btn outlined class="btn-itens">
