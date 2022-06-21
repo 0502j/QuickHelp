@@ -62,11 +62,10 @@
             </v-col>
           </v-row>
         </div>
-        <v-row >
-          <v-col cols="6" align-self="center">
-            <v-btn width="200px" rounded style="background-color: #CCE4FD">Ver Diagnóstico</v-btn>
-          </v-col>
-        </v-row>
+       <div class="btn" style="width: 200px; margin-left: 180px">
+            <v-btn  width="250px" rounded style="background-color: #CCE4FD">Ver Diagnóstico</v-btn>
+       </div>
+
       </div>
     </div>
     <v-container>

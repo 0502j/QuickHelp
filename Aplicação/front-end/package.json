@@ -10,6 +10,7 @@
     "back-end": "cd ../ && cd backend && php spark serve"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
     "v-mask": "^2.3.0",

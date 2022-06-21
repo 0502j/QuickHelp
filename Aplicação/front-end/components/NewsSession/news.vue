@@ -33,48 +33,19 @@
         <div class="text" style="text-align: center">
           <h3>Notícias Relacionadas aos seus sintomas:</h3>
         </div>
+       
       <div class="cards-news">
-
-
         <v-row>
-          <v-col>
-            <v-card class="mx-auto" max-width="344">
+          <v-col v-for="itens in news.articles" :key="itens.source">
+            <v-card class="mx-auto" style="width: 350px; height: 100%">
               <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                :src=itens.urlToImage
                 height="200px"
               ></v-img>
 
-              <v-card-title> Top western road trips </v-card-title>
+              <v-card-title>{{itens.title}}</v-card-title>
 
-              <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
-              <v-spacer></v-spacer>
-            </v-card>
-          </v-col>
-          
-          <v-col>
-            <v-card class="mx-auto" max-width="344">
-              <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                height="200px"
-              ></v-img>
-
-              <v-card-title> Top western road trips </v-card-title>
-
-              <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
-              <v-spacer></v-spacer>
-            </v-card>
-          </v-col>
-
-          <v-col>
-            <v-card class="mx-auto" max-width="344">
-              <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                height="200px"
-              ></v-img>
-
-              <v-card-title> Top western road trips </v-card-title>
-
-              <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
+              <v-card-subtitle>{{itens.content}}</v-card-subtitle>
               <v-spacer></v-spacer>
             </v-card>
           </v-col>
@@ -86,10 +57,21 @@
 
 <script>
 import Navbar from "../../layouts/Navbar/navbar.vue";
+import { mapState, mapActions } from "vuex";
 export default {
   components: {
     Navbar,
   },
+  methods:{
+    ...mapActions("News", ["getNews"])
+  },
+    computed: {
+    ...mapState("News", ["news"]),
+  },
+
+  created() {
+    this.getNews();
+  }
 };
 </script>
 
