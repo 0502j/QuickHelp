@@ -9,11 +9,11 @@
             <div class="textos">
               <div class="text-diagnostico">
                 <h3>Está se sentindo mal?</h3>
-                <h3>Obtenha um diagnóstico prévio de seus sintomas</h3>
+                <h3>Obtenha um diagnóstico
+                  <br> prévio de seus sintomas</h3>
                 <br />
-                <p style="font-size: 16px; letter-spacing: normal">
-                  Insira os sintomas no campo abaixo para que possamos te
-                  auxiliar da melhor maneira
+                <p style="font-size: 20px; letter-spacing: normal; font-weight: 600">
+                 Selecione abaixo os seus sintomas para que possamos <br> te auxiliar da melhor maneira
                 </p>
               </div>
             </div>
@@ -49,6 +49,7 @@
             </div>
           </v-col>
         </v-row>
+        <v-col>
         <div class="simtomas">
           <v-row class="input-sintomas">
             <v-col cols="12">
@@ -61,11 +62,36 @@
               ></v-text-field>
             </v-col>
           </v-row>
+         
+        <v-row style="margin-top: -20px; max-width: 750px; margin-left: 50px">
+          <v-col cols="2">
+              <div class="btn" >
+            <v-btn  class="text" width="120px" height="20px" rounded style="background-color: #CCE4FD">Dor nas juntas</v-btn>
+          </div>
+          </v-col>
+          <v-col cols="2">
+              <div class="btn" >
+            <v-btn  class="text" width="120px" height="20px" rounded style="background-color: #CCE4FD">Dor de Cabeça</v-btn>
+          </div>
+          </v-col>
+          <v-col cols="2">
+              <div class="btn" >
+            <v-btn  class="text" width="120px" height="20px" rounded style="background-color: #CCE4FD">Garganta inflamada</v-btn>
+          </div>
+          </v-col>
+          <v-col cols="2">
+              <div class="btn" >
+            <v-btn  class="text" width="120px" height="20px" rounded style="background-color: #CCE4FD">Dor no corpo</v-btn>
+          </div>
+          </v-col>
+        </v-row>
+     
         </div>
-       <div class="btn" style="width: 200px; margin-left: 180px">
+        <br>
+       <div class="btn" style="width: 200px; margin-left: 180px; margin-top: 10px">
             <v-btn  width="250px" rounded style="background-color: #CCE4FD">Ver Diagnóstico</v-btn>
        </div>
-
+        </v-col>
       </div>
     </div>
     <v-container>
@@ -81,11 +107,15 @@
               medicamentos errados e te auxilia a passar com um médico
               especialista. <br />
 
+              <br>
+
               Vale lembrar que nossos diagnósticos são fornecidas por uma I.A
               (inteligência artificial), portanto, salientamos a necessidade de
               buscar ajuda médica após esse resultado, para que de fato receba
               as melhores instruções. <br />
-
+              
+              
+              <br>
               Logo após seu diagnóstico, iremos te mostrar hospitais e farmácias
               na sua região, assim facilitando essa busca</span
             >
@@ -113,6 +143,9 @@ export default {
 </script>
 
 <style>
+.text{
+  font-size: 9px !important;
+}
 .app {
   font-family: "Roboto";
   font-style: normal;
@@ -122,12 +155,12 @@ export default {
 }
 .diagnostico-bg {
   background-color: #0f3375;
-  height: 500px;
+  height: 600px;
   width: 100%;
   text-align: center;
 }
 .text-diagnostico {
-  font-size: 30px;
+  font-size: 32px;
   text-align: left;
   letter-spacing: 1px;
   color: white;
@@ -145,8 +178,9 @@ export default {
 .text-importancia-diagnostico {
   font-family: "Roboto";
   font-style: normal;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
 }
 .page-itens {
   padding: 50px;

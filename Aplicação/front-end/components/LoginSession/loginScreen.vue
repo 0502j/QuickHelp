@@ -1,8 +1,8 @@
 <template id="app">
   <div class="login">
     <v-row>
-      <v-col cols="4" >
-        <div class="bg">
+      <v-col cols="4" class="bg" >
+        <div >
           <v-row>
             <v-col class="text-login">
               <h2 style="color: white">Login</h2>
@@ -53,7 +53,6 @@
         </div>
       </v-col>
     </v-row>
-    <footer />
   </div>
 </template>
 
@@ -65,10 +64,7 @@ export default {
     return {
       disabledButton: true,
       email: "",
-      show1: false,
-      show2: true,
-      show3: false,
-      show4: false,
+
       password: "",
       rules: {
         required: (value) => !!value || "Required.",
@@ -90,6 +86,8 @@ export default {
 .login {
   font-family: "Roboto";
   font-style: normal;
+  height: 100vh !important;
+  margin-bottom: -30px !important;
 }
 .bg {
   width: 400px !important;

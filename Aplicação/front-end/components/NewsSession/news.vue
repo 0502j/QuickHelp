@@ -33,10 +33,9 @@
         <div class="text" style="text-align: center">
           <h3>Notícias Relacionadas aos seus sintomas:</h3>
         </div>
-       
       <div class="cards-news">
         <v-row>
-          <v-col v-for="itens in news.articles" :key="itens.source">
+          <v-col cols="4" v-for="itens in news.articles" :key="itens.source">
             <v-card class="mx-auto" style="width: 350px; height: 100%">
               <v-img
                 :src=itens.urlToImage
