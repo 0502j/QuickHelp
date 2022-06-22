@@ -42,8 +42,7 @@
                 height="200px"
               ></v-img>
 
-              <v-card-title>{{itens.title}}</v-card-title>
-
+             <v-card-title class="title-card">{{itens.title}}</v-card-title>
               <v-card-subtitle>{{itens.content}}</v-card-subtitle>
               <v-spacer></v-spacer>
             </v-card>
@@ -102,5 +101,13 @@ export default {
 }
 .cards-news{
     padding: 100px;
+}
+
+.title-card{
+  font-size: 16px;
+  line-height: 22px;
+  white-space: normal;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 </style>

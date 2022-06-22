@@ -116,7 +116,9 @@
                 <v-btn text @click="closeModal()">Close</v-btn>
               </v-card-actions> -->
               <v-card-actions>
+
                 <v-spacer></v-spacer>
+                <v-btn text @click="closeModal()">Fechar</v-btn>
                 <v-btn text @click="sendSymtomps(formData)">Próximo</v-btn>
               </v-card-actions>
             </v-card>

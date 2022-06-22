@@ -49,12 +49,11 @@
           <v-col cols="6">
             <div class="txt-card">
               <span
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit.
+                > Olá, sejam bem vindos(as) ao QuickHelp, nosso projeto visa  auxiliar e fornecer diagnóticos prévios sobre sintomas que você sente.
+
+Nosso maior objetivo é orientar sobre possíveis problemas de saúde e com base nisso, facilitar um pré diagnóstico.
+
+Lembrando que o diagnóstico fornecidos por nós não é oficial, portanto, após os resultados, você terá acesso a hospitais e farmácias perto de sua localidade, para assim obter ajuda profissional
               </span>
             </div>
           </v-col>
