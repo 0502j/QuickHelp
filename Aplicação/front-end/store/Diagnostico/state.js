@@ -1,7 +1,11 @@
-export default{
-    symtomps:[
-        {name:"Gripe", value: "flu"},
-        {name:"Dor de cabeça", value: "headache"},
-        {name:"náuseas", value: "nausea"},
-    ]
+export default {
+
+    symtomps: [
+        { value: "flu", name: "Gripe" },
+        { value: "headache", name: "Dor de cabeça" },
+        { value: "nausea", name: "náuseas" },
+    ],
+
+    modal: false,
+    list: [],
 }

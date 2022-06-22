@@ -1,5 +1,5 @@
 <template>
-  <span class="app">
+  <span class="app" data-app>
     <navbar></navbar>
 
     <div class="diagnostico-bg">
@@ -9,11 +9,20 @@
             <div class="textos">
               <div class="text-diagnostico">
                 <h3>Está se sentindo mal?</h3>
-                <h3>Obtenha um diagnóstico
-                  <br> prévio de seus sintomas</h3>
+                <h3>
+                  Obtenha um diagnóstico <br />
+                  prévio de seus sintomas
+                </h3>
                 <br />
-                <p style="font-size: 20px; letter-spacing: normal; font-weight: 600">
-                 Selecione abaixo os seus sintomas para que possamos <br> te auxiliar da melhor maneira
+                <p
+                  style="
+                    font-size: 20px;
+                    letter-spacing: normal;
+                    font-weight: 600;
+                  "
+                >
+                  Selecione abaixo os seus sintomas para que possamos <br />
+                  te auxiliar da melhor maneira
                 </p>
               </div>
             </div>
@@ -50,47 +59,68 @@
           </v-col>
         </v-row>
         <v-col>
-        <div class="simtomas">
-          <v-row class="input-sintomas">
-            <v-col cols="12">
-              <v-text-field
-                style="width: 530px; border-radius: 50px"
-                v-model="message2"
-                solo
-                label="Digite seus sintomas"
-                clearable
-              ></v-text-field>
-            </v-col>
-          </v-row>
-         
-        <v-row style="margin-top: -20px; max-width: 750px; margin-left: 50px">
-          <v-col cols="2">
-              <div class="btn" >
-            <v-btn  class="text" width="120px" height="20px" rounded style="background-color: #CCE4FD">Dor nas juntas</v-btn>
+          <div class="simtomas">
+            <v-row class="input-sintomas">
+              <v-col cols="12">
+                <v-select
+                  solo
+                  style="
+                    width: 530px;
+                    border-radius: 50px;
+                    color: white !important;
+                  "
+                  v-model="formData.symtomps"
+                  :items="symtomps"
+                  item-text="name"
+                  item-value="value"
+                  attach
+                  chips
+                  label="Selecione seus Sintomas"
+                  multiple
+                ></v-select>
+              </v-col>
+            </v-row>
           </div>
-          </v-col>
-          <v-col cols="2">
-              <div class="btn" >
-            <v-btn  class="text" width="120px" height="20px" rounded style="background-color: #CCE4FD">Dor de Cabeça</v-btn>
+          <br />
+          <div
+            class="btn"
+            style="width: 200px; margin-left: 180px; margin-top: 10px"
+          >
+            <v-btn
+              @click="sendSymtomps(formData)"
+              width="250px"
+              rounded
+              style="background-color: #cce4fd"
+              >Enviar Sintomas</v-btn
+            >
           </div>
-          </v-col>
-          <v-col cols="2">
-              <div class="btn" >
-            <v-btn  class="text" width="120px" height="20px" rounded style="background-color: #CCE4FD">Garganta inflamada</v-btn>
-          </div>
-          </v-col>
-          <v-col cols="2">
-              <div class="btn" >
-            <v-btn  class="text" width="120px" height="20px" rounded style="background-color: #CCE4FD">Dor no corpo</v-btn>
-          </div>
-          </v-col>
-        </v-row>
-     
-        </div>
-        <br>
-       <div class="btn" style="width: 200px; margin-left: 180px; margin-top: 10px">
-            <v-btn  width="250px" rounded style="background-color: #CCE4FD">Ver Diagnóstico</v-btn>
-       </div>
+          <v-dialog
+            v-model="modal"
+            transition="dialog-bottom-transition"
+            max-width="600"
+            persistent
+          >
+            <v-card>
+              <v-toolbar color="primary">Selecione outros Sintomas</v-toolbar>
+              <v-card-text>
+                <v-radio-group
+                  v-for="itens in list"
+                  :key="itens.name"
+                  v-model="formData.symtomps"
+                  column
+                >
+                  <v-radio :label="itens.title" :value="itens.title"></v-radio>
+                </v-radio-group>
+              </v-card-text>
+              <!-- <v-card-actions class="justify-end">
+                <v-btn text @click="closeModal()">Close</v-btn>
+              </v-card-actions> -->
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn text @click="sendSymtomps(formData)">Próximo</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </v-col>
       </div>
     </div>
@@ -107,15 +137,14 @@
               medicamentos errados e te auxilia a passar com um médico
               especialista. <br />
 
-              <br>
+              <br />
 
               Vale lembrar que nossos diagnósticos são fornecidas por uma I.A
               (inteligência artificial), portanto, salientamos a necessidade de
               buscar ajuda médica após esse resultado, para que de fato receba
               as melhores instruções. <br />
-              
-              
-              <br>
+
+              <br />
               Logo após seu diagnóstico, iremos te mostrar hospitais e farmácias
               na sua região, assim facilitando essa busca</span
             >
@@ -130,20 +159,32 @@
 <script>
 import navbar from "@/layouts/Navbar/navbar.vue";
 import footerSite from "@/layouts/Footer/footer.vue";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   components: {
     navbar,
     footerSite,
   },
   computed: {
-    ...mapState("Diagnostico", ["symtomps"]),
+    ...mapState("Diagnostico", ["symtomps", "modal", "list"]),
+  },
+  methods: {
+    ...mapActions("Diagnostico", ["sendSymtomps", "closeModal"]),
+  },
+  data: function () {
+    return {
+      formData: {
+        symtomps: "",
+      },
+
+      sintomas: [],
+    };
   },
 };
 </script>
 
 <style>
-.text{
+.text {
   font-size: 9px !important;
 }
 .app {
