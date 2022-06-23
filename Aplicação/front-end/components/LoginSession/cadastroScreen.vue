@@ -62,12 +62,16 @@
 
       <v-col cols="8"></v-col>
     </v-row>
+    <footer-site></footer-site>
   </div>
 </template>
 
 <script>
-
+import footerSite from "@/layouts/Footer/footer.vue";
 export default {
+   components: { 
+    
+   footerSite },
   data() {
     return {
       disabledButton: true,
@@ -109,7 +113,7 @@ export default {
 }
 .bg {
   width: 400px !important;
-  height: 100vh !important;
+  height: 93vh !important;
   background-color: #0f3375;
 }
 .text-login {

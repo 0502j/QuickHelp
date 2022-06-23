@@ -12,7 +12,7 @@
           <v-row>
             <v-col class="inputs-login-1">
               <v-text-field
-                v-model="email"
+                v-model="login.email"
                 solo
                 :rules="[rules.required, rules.email]"
                 label="Email"
@@ -23,7 +23,7 @@
           <v-row>
             <v-col class="inputs-login-2" cols="12">
               <v-text-field
-                v-model="password"
+                v-model="login.password"
                 solo
                 :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                 :rules="[rules.required, rules.min]"
@@ -41,7 +41,7 @@
           </v-row>
           <v-row>
             <v-col class="col-btn-login">
-              <v-btn :disabled="disabledButton" class="btn-login" width="200px">Login</v-btn>
+              <v-btn class="btn-login" width="200px" @click="submit(login)">Login</v-btn>
             </v-col>
           </v-row>
 
@@ -53,19 +53,29 @@
         </div>
       </v-col>
     </v-row>
+    <footer-site></footer-site>
   </div>
 </template>
 
 <script>
 import footer from '../../layouts/Footer/footer.vue';
+import footerSite from "@/layouts/Footer/footer.vue";
+import { mapActions } from 'vuex';
 export default {
-  components: { footer },
+  methods: {
+    ...mapActions("Login", ["submit"])
+  },
+  components: { 
+    footer,
+   footerSite },
   data() {
     return {
       disabledButton: true,
-      email: "",
+      login:{
+        email: "",
+        password: ""
+      },
 
-      password: "",
       rules: {
         required: (value) => !!value || "Required.",
         counter: (value) => value.length <= 20 || "Max 20 characters",
@@ -86,12 +96,12 @@ export default {
 .login {
   font-family: "Roboto";
   font-style: normal;
-  height: 100vh !important;
+  height: 90vh !important;
   margin-bottom: -30px !important;
 }
 .bg {
   width: 400px !important;
-  height: 100vh !important;
+  height: 94vh !important;
   background-color: #0f3375;
 }
 .text-login {
