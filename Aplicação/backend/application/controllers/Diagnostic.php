@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Diagnostic extends CI_Controller {
+class Diagnostic extends MY_Controller {
 
     public function __construct()
     {
@@ -15,6 +15,6 @@ class Diagnostic extends CI_Controller {
 
     public function new()
     {
-        # code...
+        
     }
 }

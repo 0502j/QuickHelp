@@ -1,24 +1,34 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Caixa_Gestao extends MY_Model {
+class UserModel extends MY_Model {
 
-    public $table = 'CAIXA';
-    public $primary_key = 'NR_CAIXA';
-    public $fillable = array('DS_CAIXA');
-    public $protected = array('NR_CAIXA');
+    public $table = 'users';
+    public $primary_key = 'id';
+    public $fillabel = [];
 
-    function __construct() 
+    public function getUser($id)
     {
-        $CI =& get_instance();
-        $this->selectDB($CI->conexao);
-        $this->_database_connection  = $CI->conexao;
-        $this->return_as = 'array';
-        $this->timestamps = false;
-        parent::__construct();
+        $this->_database->select("u.id");
+        $this->_database->select("u.username");
+        $this->_database->select("u.dt_nascimento");
+        $this->_database->select("u.email");
+        $this->_database->select("u.password");
+        $this->_database->select("u.cep");
+        $this->_database->select("u.rua");
+        $this->_database->select("u.bairro");
+        $this->_database->select("u.cidade");
+        $this->_database->select("u.estado");
+        $this->_database->select("u.nr_casa");
+        $this->_database->select("u.complemento");
+        $this->_database->from  ("users u");
+        $this->_database->where ("u.id", $id);
+
+        $query = $this->_database->get();
+        return ($query->num_rows() > 0) ? $query->result_array() : [];
     }
 
-    public function getUser($email, $password)
+    public function getUserLogin($email, $password)
     {
         $this->_database->select('u.id');
         $this->_database->from  ('users u');
@@ -34,7 +44,7 @@ class Caixa_Gestao extends MY_Model {
         $data = [
             'email' => $userData['email'],
             'password' => "MD5({$userData['password']})",
-            'dt_nascimento' => $userData['dt_nascimento']
+            'username' => $userData['username']
         ];
         $result = $this->_database->insert($data);
         
@@ -42,7 +52,7 @@ class Caixa_Gestao extends MY_Model {
             $this->_database->select("id");
             $this->_database->from  ("Users");
             $this->_database->where ("email", $userData['email']);
-            $this->_database->where ("dt_nascimento", $userData['password']);
+            $this->_database->where ("password", md5($userData['password']));
 
             $query = $this->_database->get();
         }
