@@ -185,7 +185,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .text {
   font-size: 9px !important;
 }

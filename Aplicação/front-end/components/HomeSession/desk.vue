@@ -2,7 +2,7 @@
   <span>
     <v-row class="banner">
       <v-col>
-        <v-img src="/banner-home.jpg"></v-img>
+        <v-img height="600px" src="/BannerHome.png"></v-img>
       </v-col>
     </v-row>
 

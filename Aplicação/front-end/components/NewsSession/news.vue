@@ -2,17 +2,7 @@
   <span class="app">
     <navbar></navbar>
     <div class="topo-page">
-      <v-row>
-        <v-col cols="6">
-          <v-img contain height="400px" src="news.png"></v-img>
-        </v-col>
-
-        <v-col cols="6" style="background-color: #0f3375; height: 500px">
-          <div class="informacoes">
-            <h1>As principais notícias sobre saúde no seu alcance</h1>
-          </div>
-        </v-col>
-      </v-row>
+     <v-img height="500px" src="/Noticias.png" alt=""></v-img>
     </div>
 
     <v-container>

@@ -3,55 +3,37 @@
     <navbar></navbar>
 
     <div class="diagnostico-resultado-bg">
-      <div class="container">
-        <v-row>
-          <v-col cols="6" sm="8" align-self="center">
-            <div class="textos">
-              <div class="text-diagnostico">
-                <h3>Está se sentindo mal?</h3>
-                <h3>Obtenha um diagnóstico
-                  <br> prévio de seus sintomas</h3>
-                <br />
-                <p style="font-size: 20px; letter-spacing: normal; font-weight: 600">
-                  Insira os sintomas no campo abaixo para que <br>
-                   possamos te auxiliar da melhor maneira
-                </p>
-              </div>
-            </div>
-          </v-col>
+      <v-container>
+      <div style="padding: 20px" >
+        <v-row style="margin-top: 30px">
+          <v-col cols="12">
+    <div style="max-width: 665px; margin-left: 3px">
+    <v-stepper alt-labels>
+      <v-stepper-header>
+        <v-stepper-step step="1">
+         Verificação
+        </v-stepper-step>
 
-          <v-col cols="6" sm="4">
-            <div
-              style="
-                position: absolute;
-                top: 100px;
-                right: 100px;
-                display: block;
-              "
-            >
-              <v-img
-                height="300"
-                width="300"
-                contain
-                src="/hospital.png"
-                style="z-index: 1"
-                class="medica-img"
-              ></v-img>
-            </div>
-            <div style="position: absolute; top: 250px; right: 200px">
-              <v-img
-                height="250"
-                width="250"
-                contain
-                src="/medica.png"
-                style="z-index: 3"
-                class="medica-img"
-              ></v-img>
-            </div>
+        <v-divider></v-divider>
+
+        <v-stepper-step step="2">
+          Sintomas
+        </v-stepper-step>
+
+        <v-divider></v-divider>
+
+        <v-stepper-step step="3">
+         Resultados
+        </v-stepper-step>
+      </v-stepper-header>
+    </v-stepper>
+
+  </div>
           </v-col>
         </v-row>
-       
+
         <div class="possible">
+          <v-row align="center">
             <v-col cols="6">
                 <v-card class="card">
                     <br>
@@ -73,19 +55,100 @@
                        </ul>
                 </v-card>
             </v-col>
-           
+
+            <v-col cols="6">
+              <v-img style="margin-top: -50px" src="/pasta.png">
+              </v-img>
+            </v-col>
+           </v-row>
 
         </div>
       
         
       </div>
+        </v-container>
     </div>
-   
+     <div class="diagnostic-bg">
+      <div class="container">
+        <v-row>
+          <v-col cols="12" sm="12" align-self="center">
+            <div class="textos">
+              <div class="text-diagnostico" style="color: black">
+                <h3>Gripe                
+                  </h3>
+                <br />
+                <p style="font-size: 20px; letter-spacing: normal; font-weight: 400; text-align: justify; color: black">
+                A gripe é uma doença causada por um vírus do tipo influenza, que faz com que o sistema respiratório fique infeccionado e cause
+                uma série de sintomas no paciente. <br>
+                <br>
+                  Todo ano, esse vírus influenza passa por transformações e mutações, que fazem com que uma
+                  pessoa que teve a doença uma vez volte a apresentar os sintomas e os efeitos causados pela ação
+                  do vírus dentro do organismo.
+                  <br>
+                  <br>
+                  A gripe é transmitida por meio do contato com as secreções, os espirros e a tosse de um paciente que esteja
+                  infectado pela doença. Como o vírus pode sobreviver em suspensão no ar, nos meses de inverno e outono, quando a gripe é mais comum, é importante manter os ambientes
+                  sempre arejados e com circulação de ar, para que possa haver uma troca. Isso é válido para locais com muita circulação de pessoas,
+                  como o transporte público, por exemplo.
+                  <br>
+                  <br>
+                  É recomendável que seu tratamento seja realizado em Farmácias.
+                  <br>
+                  <br>
+                  Sintomas comuns:
+                  <br>
+                  <ul>
+                    <li>Nariz entupido</li>
+                    <li>Dor de garganta</li>
+                    <li>Febre</li>
+                  </ul>
+                </p>        
+              </div>
+            </div>
+          </v-col>
+        </v-row>        
+      </div>
+    </div>
+    <div class="diagnostico-resultado-bg">
+      <div class="container">
+        <v-row>
+          <v-col cols="12" sm="12" align-self="center">
+            <div class="textos">
+              <div class="text-diagnostico">
+                <h6>Hospitais, clínicas e farmácias próximas a você:</h6>
+
+                <br />
+              
+              </div>
+            </div>
+          </v-col>
+        </v-row>        
+      </div>
+    </div>
+      <div class="diagnostic-bg">
+      <div class="container">
+        <v-row>
+          <v-col cols="12" sm="12" align-self="center">
+            <div class="textos">
+              <div class="text-diagnostico" style="color: black">
+                <h3>Principais notícias                
+                  </h3>
+                <br />
+              
+              </div>
+            </div>
+          </v-col>
+        </v-row>        
+      </div>
+    </div>
+    
+ 
+ 
     <footer-site></footer-site>
   </span>
 </template>
 
-<script>
+<script scoped>
 import navbar from "@/layouts/Navbar/navbar.vue";
 import footerSite from "@/layouts/Footer/footer.vue";
 export default {
@@ -93,20 +156,25 @@ export default {
     navbar,
     footerSite,
   },
-  computed: {
-  },
-  methods: {
-  },
+  computed: {},
+  methods: {},
   data: function () {
-        return {
-        }
-    }
-}
-
+    return {};
+  },
+};
 </script>
 
 <style>
-.text{
+.possible{
+  margin: 0 auto !important;
+}
+.diagnostic-bg {
+  background-color: #cacaca;
+  height: 85vh;
+  width: 100%;
+  text-align: center;
+}
+.text {
   font-size: 9px !important;
 }
 .app {
@@ -118,7 +186,8 @@ export default {
 }
 .diagnostico-resultado-bg {
   background-color: #0f3375;
-  height: 85vh;
+  height: 115vh;
+  max-height: 90%;
   width: 100%;
   text-align: center;
 }
@@ -126,7 +195,7 @@ export default {
   font-size: 32px;
   text-align: left;
   letter-spacing: 1px;
-  color: white;
+  color: rgb(2, 2, 2);
 }
 .medica-img {
   border-radius: 30px !important;
@@ -139,7 +208,7 @@ export default {
   font-family: "Roboto";
   font-style: normal;
   font-size: 18px;
-   text-align: left;
+  text-align: left;
   font-weight: 500;
   margin-left: 35px;
 }
@@ -150,8 +219,9 @@ export default {
   text-align: center !important;
   margin-left: 20px !important;
 }
-.card{
-    height: 350px;
+.card {
+  height: 350px;
+  border-radius: 15px !important;
 }
 @media screen and (max-width: 1112px) {
   .medica-img {
