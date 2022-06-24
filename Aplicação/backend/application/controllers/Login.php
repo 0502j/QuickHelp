@@ -10,14 +10,14 @@ class Login extends MY_Controller
         $this->lood->model("UserModel");
     }
 
-    public function login($email, $password)
+    public function user($email, $password)
     {
         try {
             $user = $this->UserModel->getUserLogin($email, $password);
-            if (!empty($user)) {
-                $this->session->set_userdata($user);
-                $this->session->set_userdata(['logado' => true]);
-            }
+            http_response_code(200);
+            echo json_encode([
+                'user' => $user
+            ]);
         } catch (Throwable $e) {
             http_response_code($e->getCode() ?: 500);
             echo json_encode([
@@ -39,6 +39,10 @@ class Login extends MY_Controller
             if(!$wasCreate){
                 throw new Exception('Não foi possivél efetuar o cadastro.', 400);
             }
+            http_response_code(200);
+            echo json_encode([
+                'wasCreate' => $wasCreate
+            ]);
         } catch (Throwable $e){
             http_response_code($e->getCode() ?: 500);
             echo json_encode([

@@ -53,5 +53,4 @@ $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['api/(:any)'] = '$1/api';
-$route['api/(:any)/(:any)'] = '$1/api/$2';
+$route['/login/(:any)/(:any)'] = 'Login/users';

@@ -21,6 +21,8 @@ class UserModel extends MY_Model {
         $this->_database->select("u.estado");
         $this->_database->select("u.nr_casa");
         $this->_database->select("u.complemento");
+        $this->_database->select("u.idade");
+        $this->_database->select("u.sexo");
         $this->_database->from  ("users u");
         $this->_database->where ("u.id", $id);
 
@@ -30,13 +32,26 @@ class UserModel extends MY_Model {
 
     public function getUserLogin($email, $password)
     {
-        $this->_database->select('u.id');
+        $this->_database->select("u.id");
+        $this->_database->select("u.username");
+        $this->_database->select("u.dt_nascimento");
+        $this->_database->select("u.email");
+        $this->_database->select("u.password");
+        $this->_database->select("u.cep");
+        $this->_database->select("u.rua");
+        $this->_database->select("u.bairro");
+        $this->_database->select("u.cidade");
+        $this->_database->select("u.estado");
+        $this->_database->select("u.nr_casa");
+        $this->_database->select("u.complemento");
+        $this->_database->select("u.idade");
+        $this->_database->select("u.sexo");
         $this->_database->from  ('users u');
         $this->_database->where ('u.email', $email);
         $this->_database->where ('u.password', $password);
         
         $query = $this->_database->get();
-        return ($query-> num_rows() > 0) ? $query->result_array : [];
+        return ($query-> num_rows() > 0) ? $query->result_array() : [];
     }
 
     public function createUser($userData)
@@ -49,14 +64,27 @@ class UserModel extends MY_Model {
         $result = $this->_database->insert($data);
         
         if(!empty($result)) {
-            $this->_database->select("id");
-            $this->_database->from  ("Users");
+            $this->_database->select("u.id");
+            $this->_database->select("u.username");
+            $this->_database->select("u.dt_nascimento");
+            $this->_database->select("u.email");
+            $this->_database->select("u.password");
+            $this->_database->select("u.cep");
+            $this->_database->select("u.rua");
+            $this->_database->select("u.bairro");
+            $this->_database->select("u.cidade");
+            $this->_database->select("u.estado");
+            $this->_database->select("u.nr_casa");
+            $this->_database->select("u.complemento");
+            $this->_database->select("u.idade");
+            $this->_database->select("u.sexo");
+            $this->_database->from  ("users");
             $this->_database->where ("email", $userData['email']);
             $this->_database->where ("password", md5($userData['password']));
 
             $query = $this->_database->get();
         }
-        return ($query->num_rows() > 0) ? $query->id : '';
+        return ($query->num_rows() > 0) ? $query->result_array() : '';
     }
 
     public function deleteUser($idUser)
