@@ -72,7 +72,7 @@
                   v-model="formData.symtomps"
                   :items="symtomps"
                   item-text="name"
-                  item-value="value"
+                  item-value="id"
                   attach
                   chips
                   label="Selecione seus Sintomas"
@@ -100,18 +100,22 @@
             max-width="600"
             persistent
           >
-            <v-card>
+            <v-card v-model="list">
               <v-toolbar color="primary">Selecione outros Sintomas</v-toolbar>
-              <v-card-text>
-                <v-radio-group
-                  v-for="itens in list"
-                  :key="itens.name"
-                  v-model="formData.symtomps"
-                  column
-                >
-                  <v-radio :label="itens.title" :value="itens.title"></v-radio>
-                </v-radio-group>
-              </v-card-text>
+              <v-card-text v-bind="list">
+               <p>{{list.text}}</p>
+</v-card-text>
+    <v-radio-group v-model="formData.choices">
+      <v-radio
+        v-for="itens in choices"
+        :key="itens.name"
+        :label="itens.name"
+        :value="itens.value"
+      ></v-radio>
+    </v-radio-group>
+                <!-- {{list.items}} -->
+
+              
               <!-- <v-card-actions class="justify-end">
                 <v-btn text @click="closeModal()">Close</v-btn>
               </v-card-actions> -->
@@ -119,7 +123,7 @@
 
                 <v-spacer></v-spacer>
                 <v-btn text @click="closeModal()">Fechar</v-btn>
-                <v-btn text @click="sendSymtomps(formData)">Próximo</v-btn>
+                <v-btn text @click="checkItensSintomas(formData.choices, list.items), counterBtn(), counter += 1" :disabled="desabilitar">Próximo</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -161,25 +165,54 @@
 <script>
 import navbar from "@/layouts/Navbar/navbar.vue";
 import footerSite from "@/layouts/Footer/footer.vue";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   components: {
     navbar,
     footerSite,
   },
   computed: {
-    ...mapState("Diagnostico", ["symtomps", "modal", "list"]),
+    ...mapState("Diagnostico", ["symtomps", "modal", "list", "choices"]),
+      ...mapGetters("Diagnostico", ["getChoicesList"]),
   },
+
   methods: {
-    ...mapActions("Diagnostico", ["sendSymtomps", "closeModal"]),
+    ...mapActions("Diagnostico", ["sendSymtomps", "closeModal", "sendSymtomps2", "disableAPI"]),
+
+    checkItensSintomas(escolha, item){
+
+      if(escolha == 'present'){
+      //  let id = item[0].id;
+      let value = 'Sim'
+        this.sendSymtomps(item);
+      }
+      if(escolha == 'absent'){
+        this.sendSymtomps();
+      }
+      // console.log(escolha);
+    },
+
+    counterBtn(){
+      console.log(this.counter);
+      if(this.counter == 10){
+        this.desabilitar = true;
+        this.disableAPI();
+      }
+    }
+
+  },
+
+  mounted(){
+    this.counterBtn();
   },
   data: function () {
     return {
       formData: {
         symtomps: "",
+        choices:"",
       },
-
-      sintomas: [],
+    desabilitar: false,
+      counter: 0
     };
   },
 };

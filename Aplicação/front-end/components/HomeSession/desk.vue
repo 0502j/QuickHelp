@@ -187,9 +187,7 @@ export default {
   text-decoration: none !important;
   width: 100% !important;
 }
-.name-git{
 
-}
 
 @media screen and (max-width: 1263px) {
     .card-git {
