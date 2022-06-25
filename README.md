@@ -1,7 +1,7 @@
 # fatec-projects-interdisciplinary-3-sem
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=react&message=framework&color=blue&style=for-the-badge&logo=CodeIgniter"/>
-<img src="https://img.shields.io/static/v1?label=react&message=framework&color=blue&style=for-the-badge&logo=javascript"/>
+<img src="https://img.shields.io/static/v1?label=CodeIgniter&message=framework&color=blue&style=for-the-badge&logo=CodeIgniter"/>
+<img src="https://img.shields.io/static/v1?label=JavaScript&message=framework&color=blue&style=for-the-badge&logo=javascript"/>
 </p>
 Repositório do Projeto Interdisciplinar do 3 Semestre do curso de Desenvolvimento de Software Multiplataforma, projeto que foi focado e direcionado para consumo de APIs
 <br>
@@ -36,6 +36,9 @@ Depois, vá para a pasta de aplicação
 ```
 cd Aplicação
 ```
+Para rodar o back-end:
+
+Para que o back-end funcione adequadamente, tenha na sua maquina um servidor web, ou tenha instalado xampp ou wampp. Tendo isso clone o repositório dentro da pasta especifica para que você consiga rodar o back-end.
 
 Para rodar o front-end:
 
@@ -45,17 +48,9 @@ npm install
 npm run serve
 ```
 
-Para rodar o back-end:
-
-```
-cd backend
-composer install
-php spark serve
-```
-
 
 ## Autores do Projeto
 
-| [<img src="https://avatars.githubusercontent.com/CarolinyFranca" width=115><br><sub>Caroliny França</sub>](https://github.com/CarolinyFranca) | <br>  [<img src="https://avatars.githubusercontent.com/0502j" width=115><br><sub>Jamile de Souza</sub>](https://github.com/0502j) | <br>  [<img src="https://avatars.githubusercontent.com/JonatasTCoelho" width=115><br><sub>Jônatas Tonin Coelho</sub>](https://github.com/JonatasTCoelho) |<br> [<img src="https://avatars.githubusercontent.com/Karen-HerOAcEDucK" width=115><br><sub>Karen Letícia</sub>](https://github.com/Karen-HerOAcEDucK)
+[<img src="https://avatars.githubusercontent.com/CarolinyFranca" width=115><br><sub>Caroliny França</sub>](https://github.com/CarolinyFranca) | <br>  [<img src="https://avatars.githubusercontent.com/0502j" width=115><br><sub>Jamile de Souza</sub>](https://github.com/0502j) | <br>  [<img src="https://avatars.githubusercontent.com/JonatasTCoelho" width=115><br><sub>Jônatas Tonin Coelho</sub>](https://github.com/JonatasTCoelho) |<br> [<img src="https://avatars.githubusercontent.com/Karen-HerOAcEDucK" width=115><br><sub>Karen Letícia</sub>](https://github.com/Karen-HerOAcEDucK)
 
 
