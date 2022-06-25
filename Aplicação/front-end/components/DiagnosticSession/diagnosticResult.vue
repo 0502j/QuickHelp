@@ -42,7 +42,11 @@
                        <br>
                        <h3 class="text-results"> Diagnósticos:</h3>
                        <br>
-                       <ul>
+                       <template v-for="item in diagnostic">
+                       {{item.name}}
+                       </template>
+                    
+                       <!-- <ul>
                            <li class="text-results">Gripe</li>
                            <br>
                            <li class="text-results">Dengue</li>
@@ -52,7 +56,7 @@
                            <li class="text-results">Ressaca</li>
                            <br>
                            <li class="text-results">Insolação</li>
-                       </ul>
+                       </ul> -->
                 </v-card>
             </v-col>
 
@@ -151,12 +155,16 @@
 <script scoped>
 import navbar from "@/layouts/Navbar/navbar.vue";
 import footerSite from "@/layouts/Footer/footer.vue";
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   components: {
     navbar,
     footerSite,
   },
-  computed: {},
+  computed: {
+    ...mapState("Diagnostico", ["diagnostic"]),
+      ...mapGetters("Diagnostico", ["getChoicesList"]),
+  },
   methods: {},
   data: function () {
     return {};
