@@ -166,6 +166,7 @@
 import navbar from "@/layouts/Navbar/navbar.vue";
 import footerSite from "@/layouts/Footer/footer.vue";
 import { mapState, mapActions, mapGetters } from "vuex";
+import router from "../../src/router";
 export default {
   components: {
     navbar,
@@ -177,17 +178,12 @@ export default {
   },
 
   methods: {
-    ...mapActions("Diagnostico", ["sendSymtomps", "closeModal", "sendSymtomps2", "disableAPI"]),
+    ...mapActions("Diagnostico", ["sendSymtomps", "closeModal", "sendSymtomps2", "sendSymtomps3", "sendSymtomps4", "disableAPI"]),
 
     checkItensSintomas(escolha, item){
 
-      if(escolha == 'present'){
-      //  let id = item[0].id;
-      let value = 'Sim'
-        this.sendSymtomps(item);
-      }
-      if(escolha == 'absent'){
-        this.sendSymtomps();
+      if(escolha){
+        this.sendSymtomps2({item});
       }
       // console.log(escolha);
     },
@@ -205,6 +201,7 @@ export default {
   mounted(){
     this.counterBtn();
   },
+
   data: function () {
     return {
       formData: {

@@ -5,32 +5,71 @@ const sendSymtomps = function ({ commit, state }, payload) {
     let data = {
         ...payload,
     }
+    let array = {}
     console.log(data.symtomps);
-    
-    let evidence = []
-
-    for (let symptoms of data.symptoms){
-        evidence += `
-            {
-                "id": ${symptoms},
-                "choice_id": "present",
-                "source": "initial"
-            }
-        `
+    if(data.symtomps == 2){
+     array = {
+            "sex":"male",
+            "age": {
+                "value": 30
+              },
+              "evidence": [
+                {
+                    "id": data.symtomps[0],
+                    "choice_id": "present",
+                    "source": "initial"
+                },
+                {
+                    "id": data.symtomps[1],
+                    "choice_id": "present",
+                    "source": "initial"
+                },
+              ]
     }
-    console.log(evidence);
-    let array = {
-        "sex":"male",
-        "age": {
-            "value": 30
-          },
-          "evidence": [
-            evidence
-          ]
+    }else if(data.symtomps == 3){
+     array = {
+            "sex":"male",
+            "age": {
+                "value": 30
+              },
+              "evidence": [
+                {
+                    "id": data.symtomps[0],
+                    "choice_id": "present",
+                    "source": "initial"
+                },
+                {
+                    "id": data.symtomps[1],
+                    "choice_id": "present",
+                    "source": "initial"
+                },
+                {
+                    "id": data.symtomps[2],
+                    "choice_id": "present",
+                    "source": "initial"
+                },
+              ]
+    }
+    }else{
+     array = {
+            "sex":"male",
+            "age": {
+                "value": 30
+              },
+              "evidence": [
+                {
+                    "id": data.symtomps[0],
+                    "choice_id": "present",
+                    "source": "initial"
+                },
+                {
+                    "id": data.symtomps[1],
+                    "choice_id": "present",
+                    "source": "initial"
+                },
+              ]
+    }
     };
-
-
- 
 
   let headers = {
     headers: { 'Content-Type': 'application/json',
@@ -53,10 +92,10 @@ const sendSymtomps = function ({ commit, state }, payload) {
 }
 
 const sendSymtomps2 = function ({ commit, state }, payload) {
-
+    console.log(payload.item[0].id);
     let evidences = [{
-        "id": payload[0].id,
-        "choice_id": payload[0].choices[0].id,
+        "id": payload.item[0].id,
+        "choice_id": payload.item[0].choices[0].id,
         "source": "initial"
     }]
 
@@ -84,25 +123,68 @@ const sendSymtomps2 = function ({ commit, state }, payload) {
                 commit('SET_DIAGNOSTIC',diagnostic),
                 commit('SET_MODAL', false)
                 commit('SET_MODAL', true)
-
+              
         })
         .catch(e => {
             catchError(e);
         })
-},
+}
 
-    closeModal = function ({ commit }) {
+const sendSymtomps3 = function ({ commit, state }, payload) {
+
+    let evidences = [{
+        "id": payload[0].id,
+        "choice_id": payload[0].choices[1].id,
+        "source": "initial"
+    }]
+
+    let array = {
+        "sex":"male",
+        "age": {
+            "value": 30
+          },
+          "evidence": evidences
+    };
+  
+  let headers = {
+    headers: { 'Content-Type': 'application/json',
+    "App-Id":"9b927164",
+    "App-Key":"804c2f46520bdea8b344a43d39ab5435",
+      }
+    };
+
+    axios.post("https://api.infermedica.com/v3/diagnosis", array ,headers)
+        .then(res => {
+            let questions = res.data.question;
+            let diagnostic = res.data.conditions;
+            console.log(questions);
+                commit('SET_LIST',questions),
+                commit('SET_DIAGNOSTIC',diagnostic),
+                commit('SET_MODAL', false)
+                commit('SET_MODAL', true)
+              
+        })
+        .catch(e => {
+            catchError(e);
+        })
+}
+
+  const  closeModal = function ({ commit }) {
         commit('SET_MODAL', false)
     }
 
     const disableAPI = function ({ commit, state }) {
-        let diagnsticos = $nuxt.$store.state.Diagnostico.diagnostic
-        console.log(diagnsticos[0].common_name)
+        let diagnostics = $nuxt.$store.state.Diagnostico.diagnostic[0]
+        console.log(diagnostics);
+        $nuxt.$router.push("/resultado-diagnostico", diagnostics);
     }
 
+
+    
 export default {
     sendSymtomps,
     closeModal,
     sendSymtomps2,
+    sendSymtomps3,
     disableAPI
 }
